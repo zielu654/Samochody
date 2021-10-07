@@ -1,6 +1,5 @@
 ﻿#include <iostream>
 #include <string>
-#include <iterator>
 using namespace std;
 struct samochod {
 	string marka;
@@ -8,6 +7,7 @@ struct samochod {
 	string rodzaj;
 } s1, s2, s3, s4, s5;
 int length = 4;
+samochod samochody[100];
 void Find(struct samochod* s, string marka)
 {
 	for (int i = 0; i < length; i++) {
@@ -35,13 +35,13 @@ samochod Get()
 	cin >> result.rodzaj;
 	return result;
 }
-samochod* Add(samochod* s, samochod a)
+void Add(samochod* s, samochod a)
 {
-	samochod* r = new samochod[length++];
-	for (int i = 0; i < length - 1; i++)
-		r[i] = s[i];
-	r[length] = a;
-	return r;
+	s[length++] = a;
+}
+void Add(samochod* s)
+{
+        s[length++] = Get();
 }
 int main(int argc, char** argv)
 {
@@ -61,11 +61,10 @@ int main(int argc, char** argv)
 	s4.pojemnosc = 1800;
 	s4.rodzaj = "hatchback";
 
-	//samochod samochody[] = { s1,s2,s3,s4 };
-	samochod samochody[4] = { s1,s2,s3,s4 };
+        samochody = { s1,s2,s3,s4 };
 	Find(samochody, "Fiat");
 	s5 = Get();
-	samochod* s = Add(samochody, s4);
+	samochod* s = Add(samochody, s5);
 
 	Dispaly(s);
 
