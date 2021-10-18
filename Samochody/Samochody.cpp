@@ -97,7 +97,7 @@ int main(int argc, char** argv)
 			break;
 		case 4:
 			cin >> s;
-			cout << "podaj markę: "
+			cout << "podaj markę: ";
 			Find(s);
 			break;
 		case 5:
